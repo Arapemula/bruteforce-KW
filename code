@@ -1,0 +1,22 @@
+import itertools
+import time
+
+def generate_strings(start, end):
+    alphabet = '0123456789abcdefghijklmnopqrstuvwxyz'
+    with open("data.txt","w") as f:
+        for i in range(len(start), len(end) + 1):
+            for combination in itertools.product(alphabet, repeat=i):
+                s = ''.join(combination)
+                if s >= start and s <= end:
+                    print(s)
+                    f.write(str(s) + '\n')
+                    if s == masukan:
+                        return
+
+masukan = input("apa yang ingin kamu cari = ")
+panjang = int(input("panjang kata nya = "))
+start_time = time.time()
+generate_strings('0'*panjang, "z"*panjang)
+end_time = time.time()
+
+print("Waktu eksekusi: ", end_time - start_time, "detik")
